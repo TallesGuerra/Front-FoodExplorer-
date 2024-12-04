@@ -1,15 +1,14 @@
-import "./styles.css";
-import polygon  from "../../assets/polygon.svg";
- 
+import { Container, Title } from "./styles";
+import titleFrame from "../../assets/titleFrame.svg";
+
 export function Details() {
   return (
     //conteúdo da interface
-
-    <div>
-       <img src={polygon} />
-        <h1>Food Explorer</h1>
-      
-
-    </div>
+    <Container>
+      <Title>
+        <h1>Hello World</h1>
+        <img src={titleFrame} />
+      </Title>
+    </Container>
   );
 }
