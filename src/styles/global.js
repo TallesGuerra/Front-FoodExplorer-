@@ -10,7 +10,7 @@ export default createGlobalStyle`
 
     body {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BODY};
-        color: ${({ theme }) => theme.COLORS.TEXT_WHITE_COLOR};
+        color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
 
         -webkit-font-smoothing: antialiased;
         font-family: "Roboto", serif;        
@@ -25,7 +25,7 @@ export default createGlobalStyle`
     
     a {
         text-decoration: none;
-        color: ${({ theme }) => theme.COLORS.TEXT_WHITE_COLOR};
+        color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
 
         font-weight: 500;
         line-height: 24px;
@@ -38,21 +38,6 @@ export default createGlobalStyle`
         transition: filter 0.2s;
     }
     
-
-    input {
-        color: ${({ theme }) => theme.COLORS.TEXT_INPUT};
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
-
-        border: none;
-        border-radius: 8px;
-
-        height: 48px;
-        width: 100%;
-        padding: 12px 14px;
-        margin-bottom: 32px;
-
-
-    }
 
 
     #formSigIn{

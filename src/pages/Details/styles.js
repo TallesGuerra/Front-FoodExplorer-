@@ -2,25 +2,13 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`  
-  width: 428px;
+  width: 100%;
   height: 100vh;
 
-  display: flex;  
-  align-items: center;  
-  justify-content: center; 
-  margin: 0 auto;
-
-  border: solid 1px red;  
+  display: grid;  
+  grid-template-rows: 115px auto;
+  grid-template-areas: 
+  "header"
+  "content"  
 `;
 
-export const Title = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-  /*   img{
-        margin: 10px;
-        width:  auto;
-    } */
-    
-`;
