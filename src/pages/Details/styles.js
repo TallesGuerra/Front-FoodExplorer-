@@ -9,6 +9,26 @@ export const Container = styled.div`
   grid-template-rows: 115px auto;
   grid-template-areas: 
   "header"
-  "content"  
+  "content" ; 
+
+  main{
+    grid-area: content;
+    padding: 64px 0;
+
+    overflow-y: scroll;
+  }
+`;
+
+export const Content = styled.div`
+  max-width: 550px ;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  > button:first-child{
+    align-self: self-start;
+  }
+
 `;
 

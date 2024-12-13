@@ -11,10 +11,9 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     text-align: center;
-    justify-content: space-between;
-    gap: 10px;
-
-    padding:  0 20px;
+    justify-content: space-around;
+    
+    margin: 0 auto;
     
     svg {
         color: ${({theme}) => theme.COLORS.TEXT_WHITE};
@@ -32,15 +31,18 @@ export const Container = styled.header`
             font-style: italic;            
         }
 
+    svg{
+    font-size: auto;
+   }
+
 `;
 
 export const Logout = styled.button`
     border: none;
     background-color: transparent;  
-
-   > svg{
-    font-size: 22px;
-   }
+    display: flex;
+    align-items: center;
+    justify-content: center; 
   
     
 `;
@@ -51,9 +53,8 @@ export const Search = styled.input`
 
         border: none;
         border-radius: 8px;
-
-        height: auto;
-        width: 70%;
+               
+        width: 500px;
         padding: 12px 14px;      
         
        

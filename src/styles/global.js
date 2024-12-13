@@ -13,7 +13,9 @@ export default createGlobalStyle`
         color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
 
         -webkit-font-smoothing: antialiased;
-        font-family: "Roboto", serif;        
+        font-family: "Roboto", serif;  
+        
+
     }
 
     input, button, textarea, a {

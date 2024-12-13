@@ -1,8 +1,8 @@
-import { Container } from "./styles";
-import { Button } from "../../components/Button";
-/* import { Logo } from "../../components/Logo"; */
+import { Container, Content } from "./styles";
 import { Header } from "../../components/Header";
-import { Section } from "../../components/Section";
+import { DishSection } from "../../components/DishSection";
+import { Footer } from "../../components/Footer";
+import { ButtonText } from "../../components/ButtonText";
 
 
 
@@ -11,12 +11,19 @@ export function Details() {
     //conteúdo da interface
     <Container>      
           <Header />   
-          <Section />    
-         
-    </Container>
+          <main>
+              <Content>             
+                <DishSection/>     
+
+              </Content>
+
+            
+            </main>      
+
+
+    <Footer />
+
+    </Container>   
 
   );
-
-
-
 }
