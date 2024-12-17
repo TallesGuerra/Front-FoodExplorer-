@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-export function Button({ title, loading = false, ...rest }){
+export function Button({ title, loading = false, icon, ...rest }){
     return(
     <Container 
         type="button"
@@ -9,6 +9,7 @@ export function Button({ title, loading = false, ...rest }){
         >
         {loading ? 'Carregando...' : title} 
 
+        {icon}
 
     </Container>
     )

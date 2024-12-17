@@ -8,13 +8,8 @@ export const Container = styled.section`
     margin:  -60px auto 60px;
     width: 1120px;
     overflow: hidden;
-    height: 100%;
+    height: 100%; 
 
-    
-   
-   
-    
-   
 
     .CardAlign{
         display: flex;
@@ -57,6 +52,7 @@ export const Card = styled.div`
         padding: 24px;
         gap: 15px;
         position: relative;
+       
 
 > svg{   
     position: absolute;

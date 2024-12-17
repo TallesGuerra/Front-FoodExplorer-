@@ -1,6 +1,9 @@
-import { Container, Logout,Search  } from "./styles";
-import { List, Receipt, SignOut, MagnifyingGlass   } from "@phosphor-icons/react";
+import { Container, Logout  } from "./styles";
+import { List, Receipt, SignOut,CaretLeft } from "@phosphor-icons/react";
 import { Logo } from "../../components/Logo";
+import {Button  } from "../../components/Button";
+import {Input  } from "../../components/Input";
+import { FiSearch } from "react-icons/fi";
 
 
 
@@ -10,23 +13,19 @@ export function Header(){
             {/* <List /> */}
             <Logo />
 
-            <Search 
-            type="search" 
-            name=""
-            id="search"
-           
-            placeholder="Busque por pratos e ingredientes"            
-            >
-              
-            </Search>              
+            <Input 
+                        placeholder="Busque por pratos ou ingredientes"
+                       icon={FiSearch}
                     
+                    />
+
 
                     
-            
-            
 
-            <Receipt />         
-            
+                   <Button title="Pedido"
+                   icon={<Receipt />}
+                  />  
+                                 
             <Logout>
                 <SignOut  />
             </Logout>

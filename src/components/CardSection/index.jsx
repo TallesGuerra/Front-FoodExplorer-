@@ -4,7 +4,7 @@ import { Plus, Minus, Heart } from "@phosphor-icons/react";
 import dish1 from "../../assets/img1.png"
 import { ButtonText } from "../ButtonText";
 
-export function CardSection({ title }){
+export function CardSection({ data, ...rest }){
     return (
       <Container>
         

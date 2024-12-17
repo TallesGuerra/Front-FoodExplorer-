@@ -11,6 +11,23 @@ export const Container = styled.div`
     "header"
     "content"
     "footer";  
+
+
+    .DishAlign{
+        border: none;
+    background: none;        
+       
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center; 
+
+    }
+
+    img{
+    max-width: 390px;
+    margin-right: 48px;
+    }
 `;
 
 

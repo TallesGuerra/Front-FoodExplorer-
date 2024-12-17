@@ -5,6 +5,7 @@ export const Container = styled.header`
 
     height: 90px;
     width: 100%;
+    gap: 10px;
 
     background: ${({theme}) => theme.COLORS.BACKGROUND_HEADER};
 
@@ -14,6 +15,7 @@ export const Container = styled.header`
     justify-content: space-around;
     
     margin: 0 auto;
+  
     
     svg {
         color: ${({theme}) => theme.COLORS.TEXT_WHITE};
@@ -29,11 +31,25 @@ export const Container = styled.header`
         
     ::placeholder{
             font-style: italic;            
-        }
+        } 
 
-    svg{
-    font-size: auto;
+   > button{
+    display: flex;
+width: max-content;
+height: auto;
+padding: 12px 32px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+
+flex-shrink: 0;
+
+
+color: white;
+
    }
+
+
 
 `;
 
@@ -43,21 +59,25 @@ export const Logout = styled.button`
     display: flex;
     align-items: center;
     justify-content: center; 
-  
+
+    svg{
+       font-size: 1.5rem;
+    }
+
+   
     
 `;
 
 export const Search = styled.input`
-        color: ${({ theme }) => theme.COLORS.TEXT_BLUE};
+            color: ${({ theme }) => theme.COLORS.TEXT_BLUE};
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
 
         border: none;
         border-radius: 8px;
                
-        width: 500px;
+        width: 50%;
         padding: 12px 14px;      
         
        
 
 `;
-

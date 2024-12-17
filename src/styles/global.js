@@ -52,5 +52,12 @@ export default createGlobalStyle`
 
      
     }
+    svg{
+        font-size: 1.5rem;
+    }
+
+    svg:hover{
+        color: ${({theme}) => theme.COLORS.TEXT_BLUE};
+    }
 
 `;

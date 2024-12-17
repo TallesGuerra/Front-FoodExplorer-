@@ -1,16 +1,42 @@
 import { Button } from "../Button";
 import { Container, Card } from "../DishSection/styles";
-import { Plus, Minus } from "@phosphor-icons/react";
+import { Plus, Minus,CaretLeft } from "@phosphor-icons/react";
 import dish1 from "../../assets/img1.png"
 import { Tag } from "../Tag"
 import { ButtonText } from "../ButtonText";
 
-export function DishSection({ title }){
+export function DishSection({ data, ...rest }){
     return (
-      <Container>    
-        <div className="DishAlign">     
-          <ButtonText title=" < Voltar" className="ButtonText"/>
-            <Card> 
+      <Container {...rest}>    
+        <div className="ButtonAlign">     
+          <ButtonText 
+          title="Voltar" 
+          className="ButtonText"
+          icon={CaretLeft}         
+          />        
+
+          <div className='DishAlign'>
+            <img src={dish1} alt="Imagem do Prato"/>                 
+
+                    <NewDish data={{                    
+                    title: 'Nome do prato',
+                    description: 'teste description',
+                    tags: [
+                        {id: '1', name: 'alface'},
+                        {id: '1', name: 'cebola'},
+                    ] 
+                  }} >
+              
+                </NewDish>
+
+            </div> 
+            </div>
+            </Container>
+              
+    );
+  }
+          
+{/*  <Card> 
                 <img src={dish1} alt="Imagem do Prato"/> 
                 
                 <div className="DishInfos">
@@ -32,10 +58,5 @@ export function DishSection({ title }){
                   <Button  title="Incluir - {Valor}"/>
                   </div>
                 </div>
-            </Card>                  
-        </div>
-      </Container>
+            </Card>  */}                 
 
-
-    );
-}
