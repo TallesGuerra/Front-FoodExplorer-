@@ -14,7 +14,7 @@ export const Container = styled.div`
 
 
     .DishAlign{
-        border: none;
+    border: none;
     background: none;        
        
     display: flex;
@@ -24,7 +24,7 @@ export const Container = styled.div`
 
     }
 
-    img{
+    > img{
     max-width: 390px;
     margin-right: 48px;
     }

@@ -3,11 +3,7 @@ import {Footer} from "../../components/Footer";
 import mainPhoto from "../../assets/mainPhoto.png"
 import {Header} from "../../components/Header";
 import {CardSection} from "../../components/CardSection";
-import { NewDish } from '../../components/NewDish';
-import dish1 from "../../assets/img1.png"
-import { DishSection } from '../../components/DishSection';
-
-
+import img1 from "../../assets/img1.png"
 
 
 export function Home(){
@@ -31,7 +27,36 @@ export function Home(){
 
                 
             
-           < CardSection/>    
+           < CardSection
+            data={{   
+                image: `${img1}`,   
+                title: 'Refeições',
+                name: 'Nome do prato',
+                description: 'Descrição do prato',
+                price: 'Valor'
+            }} >         
+           </CardSection>  
+    
+           < CardSection
+            data={{   
+                image: `${img1}`,                 
+                title: 'Sobremesas',
+                name: 'Nome do prato',
+                description: 'Descrição do prato',
+                price: 'Valor'
+            }} >         
+           </CardSection>  
+           
+             
+           < CardSection
+            data={{   
+                image: `${img1}`,                 
+                title: 'Bebidas',
+                name: 'Nome do prato',
+                description: 'Descrição do prato',
+                price: 'Valor'
+            }} >         
+           </CardSection>    
 
 
         

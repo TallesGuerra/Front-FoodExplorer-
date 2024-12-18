@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.section`
     margin: -50px 120px;
     height: 100vh; 
-   /* width:; */
+  
 
     display: flex;    
     justify-content: center;
