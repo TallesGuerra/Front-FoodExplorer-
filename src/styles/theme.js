@@ -2,11 +2,12 @@ export default {
     COLORS: {
         // BACKGROUNDS COLOR
         BACKGROUND_BTN: "#750310",
-        BACKGROUND_BTN_HOVER: "#F00202",
+        BACKGROUND_BTN_HOVER: "#92000E",
         BACKGROUND_BTN_DISABLED: "#AB4D55",
         BACKGROUND_BTN_DARK: "#192227",
-        BACKGROUND_MAIN: "#091E26",
         
+        BACKGROUND_MAIN: "#091E26",
+        BACKGROUND_FORM: "#001119",
         BACKGROUND_BODY: "#000A0F",
         BACKGROUND_HEADER: "#00111A",
 
@@ -22,4 +23,3 @@ export default {
 };
 
 
-// import { List, X, Receipt, CreditCard, CaretLeft , CaretRight, Heart, PixLogo, Minus, Plus, ForkKnife, PencilSimple, SignOut } from "@phosphor-icons/react";

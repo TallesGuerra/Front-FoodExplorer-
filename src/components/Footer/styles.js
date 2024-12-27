@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 
 export const Container = styled.footer`
-    width: 100vw; 
-    height: 50px;
-    padding: 24px;    
+    width: 100%; 
+    height: 20px;
+    padding: 20px;    
     
     display: flex; 
     align-items: center;   
     justify-content: space-around;
-    flex-shrink: 0;
+   
 
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_HEADER};
     font-size: 12px;
@@ -18,7 +18,7 @@ export const Container = styled.footer`
 
 
     > img{
-        width: 150px;
+        width: 120px;
     }
 
 `;

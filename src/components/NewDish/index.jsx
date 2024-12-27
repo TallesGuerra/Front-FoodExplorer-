@@ -1,31 +1,48 @@
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 import { Tag } from "../Tag";
-import { Button } from "../Button";
-import { Plus, Minus } from "@phosphor-icons/react";
+import dish1 from "../../assets/img1.png";
+import {PickNumber} from "../../components/PickNumber";
+import {ButtonText} from "../../components/ButtonText";
+import { IoIosArrowBack } from "react-icons/io";
 
 export function NewDish({ data, ...rest }) {
   return (
     <Container>
-       <div className="DishInfos">
-        <h2>{data.title}</h2>
-        <p>{data.description}</p>
+      <Content>
+        <div>
+      <ButtonText className="btnText"
+          title="Voltar"
+          icon={ <IoIosArrowBack />}
+        /> 
 
-        {data.tags && (
-          <div className="TagsAlign">
-            {data.tags.map((tag) => (
-              <Tag key={tag.id} title={tag.name} />
-            ))}
-          </div>
-        )}
 
-        <div className="NumbeOfDishes">
-          <Minus />
-          <input type="number" name="number" id="number" />
-          <Plus />
+        <img src={dish1} alt="Imagem do Prato"/> 
 
-          <Button title="Incluir - {Valor}" />
         </div>
-      </div>
+      <main>
+          <div className="DishInfos">
+            <h2>{data.title}</h2>
+            <p>{data.description}</p>
+
+            {data.tags && (
+              <div className="TagsAlign">
+                {data.tags.map((tag) => (
+                  <Tag key={tag.id} title={tag.name} />
+                ))}
+              </div>
+            )}
+            </div>
+            
+            <PickNumber /> 
+      </main>
+        
+
+      </Content>
     </Container>
   );
-}
+  }
+  
+  {/* <FiMinus />
+  <input type="number" name="number" id="number" />
+  <FiPlus />
+          <Button title="Incluir - {Valor}" /> */}

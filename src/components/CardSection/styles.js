@@ -70,7 +70,7 @@ img{
 }        
 
 
-.NumbeOfDishes{
+/* .NumbeOfDishes{
     display: flex;
     gap: 14px;
     align-items: center;
@@ -80,5 +80,5 @@ img{
         cursor: pointer;
     }
     
-}
+} */
 `;

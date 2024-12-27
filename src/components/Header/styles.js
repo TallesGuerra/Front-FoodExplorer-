@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Container = styled.header`
     grid-area: header;
 
-    height: 90px;
+    height: 80px;
     width: 100%;
-    gap: 10px;
+    padding: 24px 123px;
+    gap: 32px;
 
     background: ${({theme}) => theme.COLORS.BACKGROUND_HEADER};
 
@@ -13,19 +14,17 @@ export const Container = styled.header`
     align-items: center;
     text-align: center;
     justify-content: space-around;
-    
-    margin: 0 auto;
-  
+   
     
     svg {
         color: ${({theme}) => theme.COLORS.TEXT_WHITE};
        font-size: 32px;
+       
     }
    
 
     img{
-        margin: 0 auto;
-        width: 146px;     
+          width: 150px;     
     }
 
         
@@ -33,21 +32,16 @@ export const Container = styled.header`
             font-style: italic;            
         } 
 
-   > button{
+   button{
     display: flex;
-width: max-content;
-height: auto;
-padding: 12px 32px;
-justify-content: center;
-align-items: center;
-gap: 8px;
+    width: min-content;
+    padding: 10px 22px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
 
-flex-shrink: 0;
-
-
-color: white;
-
-   }
+    color: white;
+}
 
 
 
@@ -69,7 +63,7 @@ export const Logout = styled.button`
 `;
 
 export const Search = styled.input`
-            color: ${({ theme }) => theme.COLORS.TEXT_BLUE};
+        color: ${({ theme }) => theme.COLORS.TEXT_BLUE};
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
 
         border: none;

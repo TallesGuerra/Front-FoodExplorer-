@@ -3,28 +3,30 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100%;
     display: flex;
-    align-items: center;
-    text-align: center;
+    align-items: center;    
     justify-content: center;
-    gap: 14px;
+    gap: 15px;
     
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
 
-    padding: 12px 14px;        
-    border-radius: 10px;
-   
+    padding: 12px 24px;        
+    border-radius: 10px; 
     
-    svg{
-        margin: 0 auto;           
-        }
+   
 
-    >input{        
-        height: auto;
-        width: 100%;
-        padding: auto;        
+    >input{           
+        height: auto;        
+        width: 100%;       
         
         color: ${({ theme }) => theme.COLORS.TEXT_WHITE};   
         background: transparent;
         border: none;  
     }
+
+    ::placeholder{ 
+    font-family: "Roboto", serif;  
+    font-size: 16px;
+    font-weight: 400;
+    
+} 
 `;

@@ -1,20 +1,62 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 100%;
-    padding: 20px;
-    display: flex;    
+    height: 100%;
+    width: 100vw;   
+    padding: 0 100px;
+
+    display: flex;  
+    align-items:center;
     justify-content: center;
+    text-align: center;
+
     
+
+    img{
+         width: 390px;
+         height: auto; 
+         
+         
+    }
+
+
+`;
+
+export const Content = styled.div`
+width: 100vw;
+    display: flex; 
+    text-align: center;  
+    margin-bottom: 50px ;  
+
+
+    .btnText{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    text-align: center;
+
+    font-size: 24px;
+    font-weight: 700; 
+
+    margin-bottom: 20px;
+   } 
+
+    main{       
+    display: flex;   
+    text-align: justify;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+     
+
     h2{
-        flex: 1;
         text-align: left;
         font-weight: 700;
         font-size: 40px;
         font-family: "Poppins", serif;
         color: ${({ theme }) => theme.COLORS.TEXT_LIGHT};    }   
-
-
+    
+    
     p{
         font-size: 24px;
         text-align: left;
@@ -22,59 +64,32 @@ export const Container = styled.div`
         text-align: justify;      
     }
 
-    .DishInfos{ 
-        border: solid 2px red;
-        height: 100%;
-        width: 650px;     
-        gap: 15px;
-        
+
+    
+
+    .DishInfos{          
+        padding: 20px;        
+        width: 500px;
+        height: auto;
+
         display: flex;
         flex-direction: column;
-        align-items: start;         
+        text-align: justify;
         
+        gap: 48px;       
         
     }  
 
-
-   
-
-    .NumbeOfDishes{
-    display: flex;
-    gap: 14px;
-    align-items: center;
-
-    > svg{
-        font-size: 52px;
-        cursor: pointer;
+    button{
+    text-align: center;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
     }
+
+  
+
     
-}
-
-input[type=number]{
-    background-color: transparent;
-    color: ${({ theme }) => theme.COLORS.TEXT_WHITE};   
-    font-size: 20px ;
-    text-align: center ;
-    justify-content: center;
-    align-items: center;
-    
-    width: 50px;
-    height: 42px;    
-
-    -moz-appearance: textfield;
-    appearance: textfield;    
-}  
-
-input[type=number]::-webkit-inner-spin-button { 
-    -webkit-appearance: none;   
-
-}
-
-button{
-text-align: center;
-margin-left: 10px;
-font-size: 14px;
-font-weight: 500;
-line-height: 24px; /* 171.429% */
 }
 `;

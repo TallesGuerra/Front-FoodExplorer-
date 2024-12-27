@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-    margin: -50px 120px;
-    height: 100vh; 
-  
-
-    display: flex;    
+    width: 100vw;    
+    display: flex;  
+      
+    border: solid 1px  red;
     justify-content: center;
 
 
@@ -19,17 +18,7 @@ export const Container = styled.section`
     } 
 
 
-    .DishInfos{ 
-        height: 450px;
-        width: 650px;
-        padding: 20px;
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between ;
-        align-items: start;         
-    }  
-    
+   
 `;
 
 
@@ -59,7 +48,7 @@ p{
     text-align: justify;
 }
 
-img{
+>img{
     max-width: 390px;
     margin-right: 48px;
     
@@ -104,4 +93,6 @@ font-size: 14px;
 font-weight: 500;
 line-height: 24px; /* 171.429% */
 }
+
+
 `;

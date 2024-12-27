@@ -1,10 +1,9 @@
 import { Container, Logout  } from "./styles";
-import { List, Receipt, SignOut,CaretLeft } from "@phosphor-icons/react";
 import { Logo } from "../../components/Logo";
 import {Button  } from "../../components/Button";
 import {Input  } from "../../components/Input";
-import { FiSearch } from "react-icons/fi";
-
+import { FiSearch} from "react-icons/fi";
+import { PiSignOutBold, PiReceipt  } from "react-icons/pi";
 
 
 export function Header(){
@@ -23,11 +22,11 @@ export function Header(){
                     
 
                    <Button title="Pedido"
-                   icon={<Receipt />}
+                   icon={<PiReceipt  />}
                   />  
                                  
             <Logout>
-                <SignOut  />
+                <PiSignOutBold  />
             </Logout>
 
 

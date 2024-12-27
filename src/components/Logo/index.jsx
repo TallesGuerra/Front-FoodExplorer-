@@ -1,5 +1,6 @@
 import { Container } from "./styles"
-import LogoImage from "../../assets/titleFrame.svg"
+import LogoImage from "../../assets/titleFrame.svg";
+import LogoAdm from "../../assets/logoAdm.svg"
 
 export function Logo({ src, alt }){
     return(

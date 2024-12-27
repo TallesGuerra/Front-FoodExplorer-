@@ -37,9 +37,13 @@ export default createGlobalStyle`
     
     button, a{
         cursor: pointer;
-        transition: filter 0.2s;
+        transition: filter 0.4s;
     }
     
+    button:hover, 
+    a:hover{
+        transition: 0.5s;
+    }
 
 
     #formSigIn{
@@ -58,6 +62,7 @@ export default createGlobalStyle`
 
     svg:hover{
         color: ${({theme}) => theme.COLORS.TEXT_BLUE};
+        transition: filter 0.4s;
     }
 
 `;

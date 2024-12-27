@@ -2,15 +2,20 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "styled-components";
 
-import { Home } from "./pages/Home";
 import theme from "./styles/theme";
-import GlobalStyles from "./styles/global"
+import GlobalStyles from "./styles/global";
+
+import { Home } from "./pages/Home";
+import { AddDish } from "./pages/AddDish";
+
+
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
      <ThemeProvider theme={theme}>
       <GlobalStyles/>
-       <Home />
+       <AddDish />
 
      </ThemeProvider>
   
