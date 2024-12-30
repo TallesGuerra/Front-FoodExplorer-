@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {DEVICE_BREAKPOINTS} from '../../styles/deviceBreakpoints'
 
 export const Container = styled.div`
     height: 100vh;
@@ -33,9 +34,8 @@ export const Content = styled.div`
 
 
 export const Form = styled.form`
-   display: flex;
-    flex-direction: column;   
-      
+ display: flex;
+ flex-direction: column;
     
     width: 100vw;
     height: 100vh;
@@ -52,11 +52,11 @@ export const Form = styled.form`
 
 
    .section1{
-   display: flex;
-   flex-direction: row;
-   
+   display: flex;  
    gap: 32px;
  
+
+  
    }
 
    .section1 label{  

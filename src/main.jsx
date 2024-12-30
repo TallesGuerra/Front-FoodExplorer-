@@ -6,7 +6,8 @@ import theme from "./styles/theme";
 import GlobalStyles from "./styles/global";
 
 import { Home } from "./pages/Home";
-import { AddDish } from "./pages/AddDish";
+import { EditDish } from "./pages/EditDish";
+import { DishDetails } from "./pages/DishDetails";
 
 
 
@@ -15,7 +16,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
      <ThemeProvider theme={theme}>
       <GlobalStyles/>
-       <AddDish />
+       <EditDish />
 
      </ThemeProvider>
   

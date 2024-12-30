@@ -10,6 +10,7 @@ export default {
         BACKGROUND_FORM: "#001119",
         BACKGROUND_BODY: "#000A0F",
         BACKGROUND_HEADER: "#00111A",
+        BACKGROUND_TAG: "#76797B",
 
         //INPUT COLORS
         BACKGROUND_INPUT: "#0D1D25",

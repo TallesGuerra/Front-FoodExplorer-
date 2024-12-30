@@ -13,10 +13,10 @@ export const Container = styled.div`
     
 
     img{
-         width: 390px;
-         height: auto; 
-         
-         
+        width: 390px;
+        height: auto; 
+        margin-right: 50px;         
+        
     }
 
 

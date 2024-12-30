@@ -1,8 +1,10 @@
+import { IoIosArrowBack } from "react-icons/io";
+
 import { ButtonText } from "../../components/ButtonText";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { IoIosArrowBack } from "react-icons/io";
+import { TagItem  } from "../../components/TagItem";
 
 
 import { Container, Content, Form } from "./styles";
@@ -44,8 +46,9 @@ export function EditDish(){
                 </section>                   
                         
                 <section className="section2">
-                    <label> Tag
-                        <input   className="tagLabel" type="text" name="" placeholder="Ex.: Salada"/>                      
+                    <label> Ingredientes
+                        <TagItem value="Alface"/>                 
+                        <TagItem isNew/>                 
                     </label> 
 
                     <label> Preço 

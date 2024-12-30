@@ -6,12 +6,7 @@ import {NewDish} from "../../components/NewDish";
 import {PickNumber} from "../../components/PickNumber";
 
 
-
-
-
-
-
-export function Details() {
+export function DishDetails() {
   return (
     //conteúdo da interface
     <Container>      
