@@ -67,10 +67,10 @@ export const Form = styled.form`
 
    }
 
-input, select{
+.section1 input, select, #price{
     margin-top: 16px;
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_FORM};  
-     color: ${({theme}) => theme.COLORS.TEXT_WHITE};
+    color: ${({theme}) => theme.COLORS.TEXT_WHITE};
     border-radius: 8px;
     border: none;
     
@@ -95,9 +95,18 @@ input, select{
     display: flex;
     gap: 32px;
    
-   
 }
 
+
+
+.section2 .tags{
+    display: flex;
+    justify-content:left;
+    gap: 8px;
+    flex-wrap: wrap;
+    
+    
+}
 
 #textarea{
     width: 100%;

@@ -45,19 +45,16 @@ export const Content = styled.div`
 
 
 export const Main = styled.div`
-       display: flex;
-       align-items: center;
-       margin: 164px;
-       
-       
-       width: 1120px;
-       height: 260px;
-       flex-shrink: 0;       
-
-
-   
-       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_MAIN};
-       border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin: 164px;
+    
+    width: 1120px;
+    height: 260px;
+    flex-shrink: 0;       
+    
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_MAIN};
+    border-radius: 5px;
        
        
 

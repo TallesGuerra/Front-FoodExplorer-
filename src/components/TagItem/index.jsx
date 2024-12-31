@@ -6,6 +6,7 @@ export function TagItem({isNew, value, onClick, ...rest}){
     return(
         <Container isNew={isNew}>
             <input 
+            className="tags"
                 type="text"
                 value={value}
                 readOnly={!isNew}

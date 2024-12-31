@@ -11,12 +11,17 @@ export const Container = styled.div`
 
     margin: 8px 0;
     border-radius: 8px;
+    position: relative;
 
 
     > button{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
         border: none;
         background: none;
-        margin-right: 5px;
+       
     
         color:  ${({theme, isNew}) => isNew ? "white" : "none"};        
     }
