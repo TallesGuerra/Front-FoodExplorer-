@@ -1,6 +1,8 @@
 import { Container, Card } from "./styles";
 import { FiHeart } from "react-icons/fi";
 import {  PickNumber } from "../../components/PickNumber";
+import { RiPencilLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 
 export function CardSection({ data,...rest }){
@@ -10,8 +12,15 @@ export function CardSection({ data,...rest }){
         <h2>{data.title}</h2>
             <div className="CardAlign">
                 <Card>
-                    <FiHeart />
+                    <FiHeart to="/favorites" display="none"/>
+                   
+                    <Link to="/edit" className="linkIcon">
+                        <RiPencilLine       
+                        />
+                    </Link>            
                     
+
+
                     <img
                     src={data.image} 
                     alt="Imagem do Prato"/>                     

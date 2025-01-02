@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { IoIosArrowBack } from "react-icons/io";
 
 import { ButtonText } from "../../components/ButtonText";
@@ -13,11 +15,14 @@ export function EditDish() {
     <Container>
       <Header />
       <Content>
+
+    <Link to="/">
         <ButtonText
           className="btnText"
           title="Voltar"
           icon={<IoIosArrowBack />}
         />
+    </Link>
 
         <Form>
           <h2>Editar prato</h2>

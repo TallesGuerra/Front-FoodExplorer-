@@ -7,6 +7,7 @@ export function ButtonText({title, icon, isActive = false, ...rest}){
             $isactive = {isActive.toString()}
             {...rest}
         >   
+        
            
             {title}
             {icon}

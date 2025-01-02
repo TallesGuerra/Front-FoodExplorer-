@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.header`
@@ -8,7 +9,7 @@ export const Container = styled.header`
     padding: 24px 123px;
     gap: 32px;
 
-    background: ${({theme}) => theme.COLORS.BACKGROUND_HEADER};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_HEADER};
 
     display: flex;
     align-items: center;
@@ -17,14 +18,13 @@ export const Container = styled.header`
    
     
     svg {
-        color: ${({theme}) => theme.COLORS.TEXT_WHITE};
-       font-size: 32px;
-       
+    color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
+    font-size: 32px;
     }
-   
+
 
     img{
-          width: 150px;     
+        width: 150px;     
     }
 
         
@@ -32,22 +32,19 @@ export const Container = styled.header`
             font-style: italic;            
         } 
 
-   button{
+    .btnNew  button{
     display: flex;
-    width: min-content;
-    padding: 10px 22px;
+    min-width: 215px;
+
     justify-content: center;
     align-items: center;
-    gap: 2px;
+    gap: 8px;
 
-    color: white;
+    color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
 }
-
-
-
 `;
 
-export const Logout = styled.button`
+export const Logout = styled(Link)`
     border: none;
     background-color: transparent;  
     display: flex;
@@ -56,6 +53,10 @@ export const Logout = styled.button`
 
     svg{
        font-size: 1.5rem;
+    }
+
+    svg:hover{
+      color:  ${({ theme }) => theme.COLORS.TEXT_BLUE};
     }
 
    

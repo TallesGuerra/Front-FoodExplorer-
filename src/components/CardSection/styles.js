@@ -29,6 +29,7 @@ export const Container = styled.section`
         color: ${({ theme }) => theme.COLORS.TEXT_LIGHT};
     }
     }
+
 `;
 
 export const Card = styled.div`
@@ -52,8 +53,9 @@ export const Card = styled.div`
         position: relative;
        
 
-> svg{   
-    position: absolute;
+
+.linkIcon svg {      
+    position: absolute ;
     right: 16px;
     top: 16px;
     font-size: 24px;
@@ -68,6 +70,7 @@ img{
     width: 170px;  
     
 }        
+
 
 
 /* .NumbeOfDishes{
