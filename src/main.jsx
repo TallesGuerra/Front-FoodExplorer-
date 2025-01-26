@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import GlobalStyles from "./styles/global";
 
+import { AuthProvider } from "./hooks/auth";
 import { Routes } from "./routes";
 
 
@@ -12,12 +13,13 @@ import { Routes } from "./routes";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-     <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyles/>
-       <Routes />
 
-     </ThemeProvider>
-  
+      <AuthProvider>
+        <Routes />        
+      </AuthProvider>  
       
+    </ThemeProvider>      
   </StrictMode>
 );
