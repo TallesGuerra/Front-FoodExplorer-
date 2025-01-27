@@ -14,7 +14,7 @@ export function CardSection({ data,...rest }){
                 <Card>
                     <FiHeart to="/favorites" display="none"/>
                    
-                    <Link to="/edit" className="linkIcon">
+                    <Link to="#" className="linkIcon">
                         <RiPencilLine       
                         />
                     </Link>            

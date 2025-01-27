@@ -1,3 +1,5 @@
+
+
 import { Container, Logout  } from "./styles";
 import { Logo } from "../../components/Logo";
 import {Button  } from "../../components/Button";
@@ -11,6 +13,9 @@ import { PiSignOutBold, PiReceipt  } from "react-icons/pi";
 
 
 export function Header(){
+   
+      
+
     return(
         <Container>
             {/* <List /> */}
@@ -22,23 +27,25 @@ export function Header(){
                     
                     />
 
-
-                    <Link to="/addDish" className="btnNew">
-                        <Button 
-                        title="Novo prato"
-
-                            /* title="Pedido"
-                            icon={<PiReceipt  />} */
-                            />  
                     
-                    </Link>
+                <Link to="/addDish" className="btnNew">
+                    <Button title="Novo prato"   />
+                </Link>
 
+                
+                        {/* <Button 
+                            title="Pedido"
+                            icon={<PiReceipt  />}
+                            />                
+                 */}
+              
 
+                  
+                    <Logout to="/signIn"> 
+                            <PiSignOutBold  />
                     
-                                 
-            <Logout to="/signIn">
-                <PiSignOutBold  />
-            </Logout>
+                        </Logout>
+                              
 
 
 
