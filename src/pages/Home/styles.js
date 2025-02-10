@@ -28,6 +28,8 @@ export const Container = styled.div`
     max-width: 390px;
     margin-right: 48px;
     }
+
+    
 `;
 
 

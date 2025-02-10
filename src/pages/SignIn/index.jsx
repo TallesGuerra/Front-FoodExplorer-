@@ -1,4 +1,4 @@
-import { Logo } from "../../components/Logo";
+import {Logo}  from "../../components/Logo";
 import { Input } from "../../components/Input";
 import { ButtonText } from "../../components/ButtonText";
 import { Button } from "../../components/Button";

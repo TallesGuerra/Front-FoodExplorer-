@@ -30,6 +30,12 @@ export const Container = styled.section`
     }
     }
 
+    .slide-item{
+        width: 200px;
+        height: 200px;
+
+    }
+
 `;
 
 export const Card = styled.div`

@@ -1,6 +1,6 @@
 import { Container, Content } from "./styles";
 import { Tag } from "../Tag";
-import dish1 from "../../assets/img1.png";
+import dish1 from "../../assets/espresso.png";
 import {PickNumber} from "../../components/PickNumber";
 import {ButtonText} from "../../components/ButtonText";
 import { IoIosArrowBack } from "react-icons/io";

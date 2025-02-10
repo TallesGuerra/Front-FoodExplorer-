@@ -3,10 +3,11 @@ import {Footer} from "../../components/Footer";
 import mainPhoto from "../../assets/mainPhoto.png"
 import {Header} from "../../components/Header";
 import {CardSection} from "../../components/CardSection";
-import img1 from "../../assets/img1.png";
+import img1 from "../../assets/espresso.png";
 
 
 export function Home(){
+  
     return(
         <Container>
             <Header />   
@@ -22,16 +23,18 @@ export function Home(){
                         </div>
                     </Main>                         
                     
-                < CardSection
-                    data={{   
-                        image: `${img1}`,   
-                        title: 'Refeições',
-                        name: 'Nome do prato',
-                        description: 'Descrição do prato',
-                        price: 'Valor'
-                    }} >         
-                </CardSection>  
             
+                < CardSection
+                        className="swiper-item"
+                            data={{   
+                                image: `${img1}`,   
+                                title: 'Refeições',
+                                name: 'Nome do prato',
+                                description: 'Descrição do prato',
+                                price: 'Valor'
+                            }} >         
+                </CardSection>  
+
                 < CardSection
                     data={{   
                         image: `${img1}`,                 
@@ -52,6 +55,8 @@ export function Home(){
                         price: 'Valor'
                     }} >         
                 </CardSection> 
+
+                
             </Content>
             <Footer />
         </Container>
