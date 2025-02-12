@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useMediaQuery } from "react-responsive";
 
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { RxCaretLeft } from "react-icons/rx";
 import { FiUpload } from "react-icons/fi";
@@ -21,64 +21,32 @@ import { Textarea } from '../../components/Textarea';
 import { Button } from "../../components/Button";
 import { Footer } from '../../components/Footer';
 
-export function Edit({ isAdmin }) {
+export function New({ isAdmin }) {
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const [dish, setDish] = useState(null);
-
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+	const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
 
   const [image, setImage] = useState(null);
   const [fileName, setFileName] = useState("");
-  const [updatedImage, setUpdatedImage] = useState(null);
 
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
 
   const [loading, setLoading] = useState(false);
 
-  const params = useParams();
   const navigate = useNavigate();
 
   function handleBack() {
     navigate(-1);
   }
 
-  useEffect(() => {
-    async function fetchDish() {
-      try {
-        const response = await api.get(`/dishes/${params.id}`);
-        setDish(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    
-    fetchDish();
-  }, [params.id]);
-
-  useEffect(() => {
-    if (dish) {
-      setFileName(dish.image);
-      setImage(dish.image);
-      setName(dish.name);
-      setCategory(dish.category);
-      setPrice(dish.price);
-      setDescription(dish.description);
-  
-      const allIngredients = dish.ingredients.map((ingredient) => ingredient.name);
-      setTags(allIngredients);
-    }
-  }, [dish]);  
-
   function handleImageChange(e) {
     const file = e.target.files[0];
     setImage(file);
-    setUpdatedImage(file);
     setFileName(file.name);
   }
 
@@ -91,7 +59,7 @@ export function Edit({ isAdmin }) {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
 
-  async function handleEditDish() {
+  async function handleNewDish() {
     if (!image) {
       return alert("Selecione a imagem do prato.");
     }
@@ -123,60 +91,30 @@ export function Edit({ isAdmin }) {
     }
 
     setLoading(true);
+    
+		const formData = new FormData();
+    formData.append("image", image);
+    formData.append("name", name);
+    formData.append("category", category);
+    formData.append("price", price);
+    formData.append("description", description);
+
+    formData.append("ingredients", JSON.stringify(tags));
 
     try {
-      const updatedDish = {
-        name: name,
-        category: category,
-        price: price,
-        description: description,
-        ingredients: tags,
-      };
-  
-      if (image) {
-        const formData = new FormData();
-        formData.append("image", image);
-  
-        await api.patch(`/dishes/${params.id}`, formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-      }
-  
-      await api.patch(`/dishes/${params.id}`, updatedDish);
-  
-      alert("Prato atualizado com sucesso!");
+      await api.post("/dishes", formData);
+      alert("Prato cadastrado com sucesso!");
       navigate(-1);
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
       } else {
-        alert("Não foi possível atualizar o prato.");
+        alert("Não foi possível cadastrar o prato.");
       }
     } finally {
       setLoading(false);
     }
 	}
-
-  async function handleRemoveDish() {
-    const confirm = window.confirm("Deseja realmente remover o prato?");
-  
-    if (confirm) {
-      setLoading(true);
-
-      try {
-        await api.delete(`/dishes/${params.id}`);
-        navigate("/");
-      } catch (error) {
-        if (error.response) {
-          alert(error.response.data.message);
-        } else {
-          alert("Não foi possível excluir o prato.");
-        }
-      } finally {
-        setLoading(false);
-      }
-    }
-  }
 
   return (
     <Container>
@@ -204,7 +142,7 @@ export function Edit({ isAdmin }) {
               voltar
             </ButtonText>
 
-            <h1>Editar prato</h1>
+            <h1>Adicionar prato</h1>
           </header>
 
           <div>
@@ -288,23 +226,14 @@ export function Edit({ isAdmin }) {
           <Section title="Descrição">
             <Textarea 
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-              defaultValue={description}
               onChange={(e) => setDescription(e.target.value)}
             />
           </Section>
 
-          <div className="buttons">
-            <Button 
-              className="delete" 
-              title="Excluir prato" 
-              onClick={handleRemoveDish} 
-              loading={loading}
-            />
-
+          <div className="save">
             <Button
-              className="save"
               title="Salvar alterações"
-              onClick={handleEditDish}
+              onClick={handleNewDish}
               loading={loading}
             />
           </div>

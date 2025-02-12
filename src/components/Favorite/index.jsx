@@ -1,5 +1,4 @@
 import { api } from "../../services/api";
-
 import { Container } from "./styles";
 
 export function Favorite({ data, removeFavorite }) {

@@ -1,68 +1,40 @@
 import { createGlobalStyle } from "styled-components";
 
-
 export default createGlobalStyle`
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    body {
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BODY};
-        color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
+  :root {
+    font-size: 62.5%;
 
-        -webkit-font-smoothing: antialiased;
-        font-family: "Roboto", serif;  
-        
+    --swiper-navigation-size: 4rem;
+    --swiper-theme-color: ${({ theme }) => theme.COLORS.WHITE};
+  }
 
-    }
+  body {
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    color: ${({ theme }) => theme.COLORS.WHITE};
+		-webkit-font-smoothing: antialiased;
+  }
 
-    input, button, textarea, a {
-        font-family: "Poppins", serif;
-        outline: none;
+  body, input, button, textarea {
+	  font-family: 'Roboto', sans-serif;
+	  font-size: 1.6rem;
+  }
 
-        
-    }
-    
-    a {
-        text-decoration: none;
-        color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
-
-        font-weight: 500;
-        line-height: 24px;
-
-        text-align: center;
-    }
-    
-    button, a{
-        cursor: pointer;
-        transition: filter 0.4s;
-    }
-    
-    button:hover, 
-    a:hover{
-        transition: 0.5s;
-    }
-
-
-    #formSigIn{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-top: 70px;
-        align-items: flex-start;
-
-
-     
-    }
-    svg{
-        font-size: 1.5rem;
-    }
-
-    svg:hover{
-        color: ${({theme}) => theme.COLORS.TEXT_BLUE};
-        transition: filter 0.4s;
-    }
-
+  a {
+    text-decoration: none;
+  }
+  
+  button, a {
+    cursor: pointer;
+    transition: filter 0.2s;
+  }
+  
+  button:hover, a:hover {
+    filter: brightness(0.9);
+  }
 `;

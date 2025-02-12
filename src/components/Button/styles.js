@@ -1,31 +1,47 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BTN};
-    color: ${({ theme }) => theme.COLORS.TEXT_WHITE};
-    font-size: 16px;
-    text-align: center;
+  border: 0;
+  background: none;
+  border-radius: 0.5rem;
 
-    width: 100%;  
-    padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 100%;
+  padding: 1.2rem 2.4rem;
+  
+  background-color: ${({ theme }) => theme.COLORS.DARK_RED};
+  color: ${({ theme }) => theme.COLORS.WHITE};
 
-    border: none;
-    border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
 
-    > svg{
-        margin-left: 5px;
-        font-size: 1.5rem;
-    }
+  position: relative;
+
+  > span {
+    position: absolute;
+    top: -0.4rem;
+    right: -0.6rem;
+
+    background-color: ${({ theme }) => theme.COLORS.DARK_RED};
+    border-radius: 99px;
+    padding-inline: 0.6rem;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 0.8rem;
+    padding: 1.2rem 3.2rem;
     
- 
-    
-    &:disabled{
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BTN_DISABLED};
+    > span {
+      position: initial;
+      padding-inline: 0;
     }
-
-    &:hover{
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BTN_HOVER};
-    }
-
-   
+  }
 `;

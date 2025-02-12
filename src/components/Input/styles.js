@@ -1,32 +1,28 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  border-radius: 0.5rem;
+  
+  > input {
+    height: 4.8rem;
     width: 100%;
-    display: flex;
-    align-items: center;    
-    justify-content: center;
-    gap: 15px;
     
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
+    padding: 1.2rem 1.4rem;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    background: transparent;
+    border: 0;
 
-    padding: 12px 24px;        
-    border-radius: 10px; 
-    
-   
-
-    >input{           
-        height: auto;        
-        width: 100%;       
-        
-        color: ${({ theme }) => theme.COLORS.TEXT_WHITE};   
-        background: transparent;
-        border: none;  
+    &::placeholder {
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
     }
 
-    ::placeholder{ 
-    font-family: "Roboto", serif;  
-    font-size: 16px;
-    font-weight: 400;
-    
-} 
+    &:focus {
+      border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    }
+  }
 `;

@@ -1,16 +1,17 @@
-import { Container } from "./styles";
-import logoFooter from "../../assets/logoFooter.svg"
+import { Container, Brand, Copyright } from "./styles";
 
+import brand from "../../assets/footer-brand.svg";
 
-export function Footer(){
-    return(
-        <Container>
-            <img src={logoFooter} alt="Logo Footer" />
+export function Footer() {
+  return (
+    <Container>
+      <Brand>
+        <img src={brand} alt="Logo" />
+      </Brand>
 
-            <p> 	
-                &copy; 2024 - Todos os direitos reservados.
-                
-            </p>
-        </Container>
-    );
+      <Copyright>
+        © 2023 - Todos os direitos reservados.
+      </Copyright>
+    </Container>
+  );
 }

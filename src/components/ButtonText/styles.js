@@ -1,18 +1,30 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-    background: none;
-    color: ${({theme, $isactive }) => 
-        $isactive ? theme.COLORS.TEXT_LIGHT : theme.COLOS.TEXT_BLUE};
+  background: none;
+  border: none;
 
-    border: none;
-    font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 140%;
 
-    margin: 5px;
+  color: ${({ theme }) => theme.COLORS.GRAY_200};
 
-    &:hover{
+  display: flex;
+  align-items: center;
+
+  > svg {
+    font-size: 3.2rem;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+  }
+
+  &:hover{
         color: ${({theme }) => theme.COLORS.TEXT_BLUE};
     }
-
-    
+  
+  @media (min-width: 1024px) {
+    font-weight: 700;
+  }
 `;
+

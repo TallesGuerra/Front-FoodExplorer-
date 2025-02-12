@@ -1,14 +1,11 @@
-import styled  from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.span`
-    font-size: 12px;
-    padding: 4px 8px;
-    justify-content: center;
-    align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
 
-    border-radius: 5px;
-    background-color: ${({theme})=> theme.COLORS.BACKGROUND_BTN_DARK};
-    color: ${({theme})=> theme.COLORS.TEXT_WHITE};
+  font-size: 1.4rem;
+  line-height: 2.4rem;
 
-    margin-right: 12px;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_400};
 `;

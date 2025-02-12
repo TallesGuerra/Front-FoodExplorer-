@@ -43,20 +43,10 @@ export const Container = styled.div`
     }
   }
 
-  .buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 3.2rem;
-
+  .save {
     > button {
       padding: 1.2rem 2.4rem;
-    }
-
-    .delete {
-      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
-    }
-
-    .save {
+  
       &:disabled {
         opacity: 1;
         background-color: ${({ theme }) => theme.COLORS.LIGHT_RED};
@@ -81,14 +71,10 @@ export const Container = styled.div`
       }
     }
 
-    .buttons {
+    .save {
       justify-content: flex-end;
 
-      .delete {
-        max-width: 13.5rem;
-      }
-
-      .save {
+      > button {
         max-width: 17.2rem;
       }
     }
@@ -228,7 +214,7 @@ export const Category = styled.div`
     position: relative;
 
     select {
-      border: none;
+      border: none;      
       cursor: pointer;
       
       width: 100%;

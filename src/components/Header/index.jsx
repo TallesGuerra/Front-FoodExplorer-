@@ -1,44 +1,80 @@
-import { Container, Logout } from "./styles";
-import { Logo } from "../../components/Logo";
+import { FiMenu, FiLogOut } from "react-icons/fi";
+import { MdClose } from "react-icons/md";
+import { useMediaQuery } from "react-responsive";
+
+import { useNavigate } from 'react-router-dom';
+import { Container, Menu, Brand, Logout } from "./styles";
+import { useAuth } from '../../hooks/auth';
+
+import { Search } from "../../components/Search";
 import { Button } from "../../components/Button";
-import { Input } from "../../components/Input";
-import { useAuth } from "../../hooks/auth";
 
-import { Link, useNavigate } from "react-router-dom";
+import brand from "../../assets/brand.svg";
+import brandAdmin from "../../assets/brand-admin.svg";
+import brandMobile from "../../assets/brand-mobile.svg";
 
-import { FiSearch } from "react-icons/fi";
-import { PiSignOutBold, PiReceipt } from "react-icons/pi";
+export function Header({ isAdmin, isDisabled, isMenuOpen, setIsMenuOpen, setSearch }) {
+  const isDesktop = useMediaQuery({ minWidth: 1024 });
 
-export function Header() {
+  // Define a logo com base no perfil do usuário e no tipo de dispositivo
+  const logo = isAdmin ? (isDesktop ? brandAdmin : brandMobile) : brand;
+
   const { signOut } = useAuth();
-  const navigation = useNavigate;
+  const navigate = useNavigate();
 
-  function handleSignOut(){
-    navigation("/signIn");
+  function handleFavorites() {
+    navigate("/favorites");
+  }
+
+  function handleNew() {
+    navigate("/new");
+  }
+
+  function handleSignOut() {
+    navigate("/");
     signOut();
   }
 
-
   return (
     <Container>
-      {/* <List /> */}
-      <Logo />
+      {!isDesktop && (
+        <Menu>
+          {!isMenuOpen ?
+            <FiMenu className="fi-menu-icon" onClick={() => setIsMenuOpen(true)} /> :
+            <>
+              <MdClose size={"1.8rem"} onClick={() => setIsMenuOpen(false)} />
+              <span>Menu</span>
+            </>
+          }
+        </Menu>
+      )}
 
-      <Input placeholder="Busque por pratos ou ingredientes" icon={FiSearch} />
+      {(isDesktop || !isMenuOpen) && (
+        <>
+          <Brand>
+            {/* Renderiza a imagem da logo */}
+            <img src={logo} alt="Logo" onError={(e) => { e.target.src = brand; }} />
+          </Brand>
 
-      <Link to="/addDish" className="btnNew">
-        <Button title="Novo prato" />
-      </Link>
+          {isDesktop && <Search isDisabled={isDisabled} setSearch={setSearch} />}
 
-      {/* <Button 
-                            title="Pedido"
-                            icon={<PiReceipt  />}
-                            />                
-                 */}
+          {/* Botão "Meus favoritos" só aparece se o usuário NÃO for Admin */}
+          {/* {isDesktop && !isAdmin && (
+            <button className="favorites" onClick={handleFavorites}>Meus favoritos</button>
+          )} */}
 
-      <Logout onClick={signOut}>
-        <PiSignOutBold />
-      </Logout>
+          {isAdmin ? 
+            (isDesktop && <Button className="new" title="Novo prato" onClick={handleNew} />) :
+            <Button className="orders" title={isDesktop ? "Pedidos" : undefined} isCustomer orderCount={0} />
+          }
+
+          {isDesktop && (
+            <Logout onClick={handleSignOut}>
+              <FiLogOut size={"3.2rem"} />
+            </Logout>
+          )}
+        </>
+      )}
     </Container>
   );
 }
