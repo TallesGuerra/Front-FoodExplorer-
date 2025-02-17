@@ -7,6 +7,7 @@ import { Edit } from "../pages/EditDish";
 import { Home } from "../pages/Home";
 import { Dish } from "../pages/Dish";
 import { Favorites } from "../pages/Favorites";
+import {Orders}  from "../pages/Orders";
 
 export function AppRoutes({ isAdmin }) {
   return (
@@ -16,6 +17,8 @@ export function AppRoutes({ isAdmin }) {
       <Route path="/edit/:id" element={<Edit isAdmin={isAdmin} />} />
       <Route path="/dish/:id" element={<Dish isAdmin={isAdmin} />} />
       <Route path="/favorites" element={<Favorites isAdmin={isAdmin} />} />
+      <Route path="/orders" element={<Orders />} />
+    
     </Routes>
   );
 }

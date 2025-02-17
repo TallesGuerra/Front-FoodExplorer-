@@ -12,7 +12,7 @@ export const Container = styled.div`
     "header"
     "content";
 
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BTN_DARK};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
   visibility: ${({ isMenuOpen }) => (isMenuOpen ? "visible" : "hidden")};
   opacity: ${({ isMenuOpen }) => (isMenuOpen ? "1" : "0")};
@@ -36,7 +36,7 @@ export const Container = styled.div`
     button {
       width: 100%;
       padding: 1rem;
-      border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_BTN};
+      border-bottom: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_400};
       
       font-weight: 300;
     }

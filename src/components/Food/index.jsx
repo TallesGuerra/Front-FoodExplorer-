@@ -1,69 +1,44 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BiPencil } from "react-icons/bi";
 import { FiHeart } from "react-icons/fi";
 import { RxCaretRight } from "react-icons/rx";
+
 import { useMediaQuery } from "react-responsive";
 import theme from "../../styles/theme";
-import { useParams, useNavigate } from 'react-router-dom';
-import { api } from '../../services/api';
-import { Container, Title, Order } from "./styles";
-import { NumberPicker } from '../../components/NumberPicker';
-import { Button } from "../../components/Button";
 
+import { useParams, useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
+
+import { Container, Title, Order } from "./styles";
+import { NumberPicker } from "../../components/NumberPicker";
+import { Button } from "../../components/Button";
+import { useCart } from "../../contexts/CartContext"; // 🔹 Importado contexto do carrinho
 
 export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails, user_id, ...rest }) {
   const isDesktop = useMediaQuery({ minWidth: 1024 });
-  const params = useParams();
+  const { addToCart } = useCart(); // 🔹 Hook para atualizar o carrinho
+
   const navigate = useNavigate();
 
   const [number, setNumber] = useState(1);
-  const [cartId, setCartId] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [localIsFavorite, setLocalIsFavorite] = useState(isFavorite);
-
-  // Verifica se o prato já está nos favoritos
-  useEffect(() => {
-    const checkIfFavorite = async () => {
-      try {
-        const response = await api.get(`/favorites?user_id=${user_id}&dish_id=${data.id}`);
-        const isFavorite = response.data.some((favorite) => favorite.dish_id === data.id);
-        setLocalIsFavorite(isFavorite);
-      } catch (error) {
-        console.log('Erro ao verificar favoritos:', error);
-      }
-    };
-
-    checkIfFavorite();
-  }, [data.id, user_id]);
 
   const handleFavorite = async () => {
     try {
-      // Faz a requisição para o backend
-      if (!localIsFavorite) {
-        await api.post(`/favorites`, { dish_id: data.id, user_id });
+      if (isFavorite) {
+        updateFavorite(true, data.id);
+        alert("Favorito removido!");
       } else {
-        await api.delete(`/favorites/${data.id}`, { data: { user_id } });
-      }
-
-      // Atualiza o estado local após a confirmação do backend
-      setLocalIsFavorite((prev) => !prev);
-
-      // Chama a função `updateFavorite` para atualizar o estado global
-      if (updateFavorite) {
-        updateFavorite(!localIsFavorite, data.id);
+        updateFavorite(false, data.id);
+        alert("Favorito adicionado com sucesso!");
       }
     } catch (error) {
-      console.log('Erro ao atualizar favoritos:', error);
-
-      // Reverte o estado local em caso de erro
-      setLocalIsFavorite((prev) => !prev);
-
-     
+      console.log("Erro ao atualizar favoritos:", error);
     }
   };
 
   function handleEdit() {
-    navigate(`/edit/${data.id}`);
+    navigate(`/edit/${data.id}`); // 🔹 Corrigido template literal
   }
 
   async function handleInclude() {
@@ -74,28 +49,15 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
         dish_id: data.id,
         name: data.name,
         quantity: number,
+        price: data.price,
       };
 
-      const response = await api.get('/carts', { params: { created_by: user_id } });
-      const cart = response.data[0];
+      await addToCart(cartItem); // 🔹 Atualiza o contexto do carrinho
 
-      if (cart) {
-        await api.patch(`/carts/${cart.id}`, { cart_items: [cartItem] });
-      } else {
-        const createResponse = await api.post('/carts', { cart_items: [cartItem], created_by: user_id });
-        const createdCart = createResponse.data;
-
-        setCartId(createdCart.id);
-      }
-
-      alert('Prato adicionado ao carrinho!');
+      alert("Prato adicionado ao carrinho!");
     } catch (error) {
-      if (error.response) {
-        alert(error.response.data.message);
-      } else {
-        alert('Não foi possível adicionar ao carrinho.');
-        console.log('Erro ao adicionar ao carrinho:', error);
-      }
+      alert("Não foi possível adicionar ao carrinho.");
+      console.log("Erro ao adicionar ao carrinho:", error);
     } finally {
       setLoading(false);
     }
@@ -108,14 +70,13 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
       ) : (
         <FiHeart
           size={"2.4rem"}
-          fill={localIsFavorite ? theme.COLORS.GRAY_200 : "none"}
+          fill={isFavorite ? theme.COLORS.GRAY_200 : undefined}
           onClick={handleFavorite}
-          style={{ cursor: 'pointer' }}
         />
       )}
 
       <img 
-        src={`${api.defaults.baseURL}/files/${data.image}`} 
+        src={`${api.defaults.baseURL}/files/${data.image}`} // 🔹 Corrigido template literal
         alt="Imagem do prato." 
         onClick={() => handleDetails(data.id)} 
       />
@@ -129,12 +90,12 @@ export function Food({ data, isAdmin, isFavorite, updateFavorite, handleDetails,
       </Title>
       
       {isDesktop && <p>{data.description}</p>}
-      <span>R$ {data.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+      <span>R$ {data.price.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span>
 
       {!isAdmin && 
         <Order>
           <NumberPicker number={number} setNumber={setNumber} />
-          <Button title="incluir" onClick={handleInclude} loading={loading} />
+          <Button title="Incluir" onClick={handleInclude} loading={loading} />
         </Order>
       }
     </Container>
