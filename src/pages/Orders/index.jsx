@@ -10,22 +10,18 @@ import { ButtonText } from "../../components/ButtonText";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { api } from "../../services/api";
+import { Button } from "../../components/Button";
 
 export function Orders({ isAdmin }) {
-  const { cartItems } = useCart();
+  const { cartItems, setCartItems } = useCart();
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartDetails, setCartDetails] = useState([]); // Estado para armazenar detalhes dos pratos
+  const [cartDetails, setCartDetails] = useState([]);
   const navigate = useNavigate();
 
   function handleBack() {
     navigate(-1);
   }
-
-  // 🔹 Depuração: Verificar se os itens do carrinho estão carregando corretamente
-  useEffect(() => {
-    console.log("Itens no carrinho:", cartItems);
-  }, [cartItems]);
 
   // 🔹 Buscar detalhes dos pratos caso os dados estejam incompletos
   useEffect(() => {
@@ -56,6 +52,14 @@ export function Orders({ isAdmin }) {
     }
   }, [cartItems]);
 
+  // 🔹 Limpar todo o carrinho
+  function handleClearCart() {
+    setCartItems([]); // Zera o estado do carrinho
+    setCartDetails([]); // Zera os detalhes do carrinho
+    localStorage.removeItem("cartItems"); // Remove do localStorage
+    localStorage.removeItem("cartDetails"); // Remove detalhes salvos
+  }
+
   // 🔹 Calcular o total do pedido
   const totalOrder = cartDetails.reduce((total, item) => {
     return total + item.price * item.quantity;
@@ -64,32 +68,35 @@ export function Orders({ isAdmin }) {
   return (
     <Container>
       {!isDesktop && (
-        <Menu 
-          isAdmin={isAdmin} 
-          isMenuOpen={isMenuOpen} 
-          setIsMenuOpen={setIsMenuOpen} 
+        <Menu
+          isAdmin={isAdmin}
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
         />
       )}
 
-      <Header 
+      <Header
         className="headerOrders"
-        isAdmin={isAdmin} 
-        isMenuOpen={isMenuOpen} 
-        setIsMenuOpen={setIsMenuOpen} 
+        isAdmin={isAdmin}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
       />
 
       <main>
         <header>
-          <ButtonText onClick={handleBack}
-           
-          >
+          <ButtonText onClick={handleBack}>
             <RxCaretLeft />
             voltar
           </ButtonText>
+
+       
         </header>
 
         <Content>
           <h1>Meu Pedido</h1>
+
+       
+
           {cartDetails.length > 0 ? (
             <>
               <ul style={{ listStyle: "none", padding: 0 }}>
@@ -100,26 +107,28 @@ export function Orders({ isAdmin }) {
                     : "https://via.placeholder.com/100";
 
                   return (
-                    <li 
-                      key={index} 
-                      style={{ 
-                        display: "flex", 
-                        alignItems: "center", 
+                    <li
+                      key={index}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
                         gap: "15px",
                         padding: "10px",
-                        borderBottom: "1px solid #ccc"
+                        borderBottom: "1px solid #ccc",
                       }}
                     >
-                      <img 
-                        src={imageUrl} 
-                        alt={`Imagem de ${item.name}`} 
+                      <img
+                        src={imageUrl}
+                        alt={`Imagem de ${item.name}`}
                         style={{
                           width: "100px",
                           height: "100px",
                           borderRadius: "8px",
-                          objectFit: "cover"
+                          objectFit: "cover",
                         }}
-                        onError={(e) => (e.target.src = "https://via.placeholder.com/100")}
+                        onError={(e) =>
+                          (e.target.src = "https://via.placeholder.com/100")
+                        }
                       />
                       <div className="dishInformation">
                         <h2 style={{ margin: "5px 0" }}>{item.name}</h2>
@@ -131,8 +140,18 @@ export function Orders({ isAdmin }) {
                   );
                 })}
               </ul>
-              {/* 🔹 Exibir o total do pedido */}
-              <div style={{ marginTop: "20px", textAlign: "right" }}>
+                
+
+              <div className="footerOrders">
+                      {/* 🔹 Botão para limpar carrinho */}
+                {cartDetails.length > 0 && (
+                  <Button
+                    title="limpar carrinho"
+                    onClick={handleClearCart}
+                      >
+                    Limpar Carrinho
+                  </Button>
+                )}
                 <h2>Total do Pedido: R$ {totalOrder.toFixed(2)}</h2>
               </div>
             </>

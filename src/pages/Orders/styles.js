@@ -39,10 +39,20 @@ export const Container = styled.div`
        display: flex;
        flex-direction: column;
        gap: 0.5rem;
-      }
+      } 
+    }  
+    
+    .footerOrders{
+      display: flex;
+      margin-top: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
 
- 
-    }   
+    .footerOrders button{
+      width: auto;
+      text-transform: capitalize;
+    }
   }
 
   @media (min-width: 1024px) {

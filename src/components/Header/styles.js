@@ -37,9 +37,7 @@ export const Container = styled.header`
       max-width: 21.6rem;
     }
 
-  .orders{
-    width: 40px;
-  }
+  
   }
 `;
 
