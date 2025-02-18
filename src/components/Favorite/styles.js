@@ -29,7 +29,7 @@ export const Container = styled.div`
       font-size: 1.2rem;
       line-height: 160%;
   
-      color: ${({ theme }) => theme.COLORS.BACKGROUND_BTN};
+      color: ${({ theme }) => theme.COLORS.DARK_BLUE};
     }
   }
 

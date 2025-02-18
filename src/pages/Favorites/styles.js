@@ -19,6 +19,7 @@ export const Container = styled.div`
     > div {
       width: calc(100% - 7rem);
       margin: 5.6rem 3.5rem;
+      
   
       h1 {
         font-family: "Poppins", sans-serif;
@@ -30,6 +31,8 @@ export const Container = styled.div`
         margin-top: 2.4rem;
         margin-bottom: 2.7rem;
       }
+
+      
     }
   }
 
