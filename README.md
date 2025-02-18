@@ -7,9 +7,11 @@
 
 <p align="center">
   <a href="#project">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#structure">Estrutura</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#pages">Páginas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#features">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#usage">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#users">Personas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#license">Licença</a>
 </p>
 
@@ -21,45 +23,59 @@
 
 O projeto Food Explorer consiste no desafio final do programa Explorer da Rocketseat. Trata-se de uma aplicação de cardápio digital para um restaurante fictício.
 
-O back-end do projeto, que lida com a lógica e o armazenamento dos dados, está disponível neste repositório. Já o front-end, responsável pela interface do usuário, está disponível [aqui](https://github.com/TallesGuerra/Front-FoodExplorer-).
+O front-end do projeto, responsável pela interface do usuário, está disponível neste repositório. Já o back-end, que lida com a lógica e o armazenamento dos dados, está disponível [aqui](https://github.com/TallesGuerra/API-Food-Explorer).
 
-<h2 id="structure">📌 Estrutura</h2>
+<h2 id="pages">📃 Páginas</h2>
 
-O projeto conta com as seguintes tabelas:
+A aplicação conta com as seguintes páginas:
 
-- Usuários
-- Pratos
-- Ingredientes dos pratos
+- Login
+- Cadastro
+- Home
+- Detalhes do prato
+- Novo prato
+- Editar prato
 - Favoritos
-- Carrinhos
-- Itens dos carrinhos
-- Pedidos
-- Itens dos pedidos
+
+!["Página home"](./src/assets/home.png)
+
+<h2 id="features">🛠️ Funcionalidades</h2>
+
+A aplicação apresenta as seguintes funcionalidades:
+
+- Login
+- Cadastro
+- Cadastrar pratos
+- Mostrar pratos cadastrados
+- Filtrar pratos
+- Mostrar detalhes do prato
+- Favoritar prato
+- Remover prato dos favoritos
+- Mostrar favoritos
+- Adicionar prato ao carrinho
+- Editar prato
+- Excluir prato
+- Logout
 
 <h2 id="technologies">💻 Tecnologias</h2>
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
 
-- Bcrypt.js
-- CORS
-- Dotenv
-- Express.js
-- express-async-errors
-- JSON Web Token
-- Knex.js
-- Node.js
-- Multer
-- PM2
-- SQLite
-- SQLite3
+- Axios
+- ReactJS
+- ReactDOM
+- React Icons
+- React Responsive
+- React Router Dom
+- Styled Components
+- Swiper
+- ViteJS
 
 <h2 id="usage">💡 Utilização</h2>
 
-O back-end do projeto está hospedado no endereço https://api-food-explorer-zqj2.onrender.com. A aplicação Food Explorer está disponível para uso [aqui](https://fullstack-foodexplorer.netlify.app/).
+A aplicação Food Explorer está disponível para uso [aqui](https://fullstack-foodexplorer.netlify.app/).
 
-⚠️ **Importante**: Este projeto utiliza uma hospedagem gratuita para o back-end, portanto, pode haver atrasos no tempo de resposta do servidor.
-
-Você também pode executá-lo em sua máquina localmente. Certifique-se de ter o ``Node.js`` e o ``npm`` instalados antes de prosseguir com as etapas abaixo:
+Você também pode executá-la em sua máquina localmente. Certifique-se de ter o ``Node.js`` e o ``npm`` instalados antes de prosseguir com as etapas abaixo:
 
 1. Clone o projeto:
 
@@ -91,11 +107,26 @@ $ npm run migrate
 $ npm start
 ```
 
-⚠️ **Importante**: Crie um arquivo .env de acordo com o arquivo .env.example e preencha os campos AUTH_SECRET e PORT com suas respectivas informações.
+⚠️ **Importante**: Este projeto utiliza uma hospedagem gratuita para o back-end, portanto, pode haver atrasos no tempo de resposta do servidor.
 
-- Para gerar o valor para o campo AUTH_SECRET, você pode utilizar o MD5 Hash Generator para gerar uma sequência de caracteres segura
+<h2 id="users">👩🏾‍💻 Personas</h2>
 
-- Preencha o campo PORT com o número da porta desejada para executar o servidor da aplicação
+O Food Explorer possui duas personas principais: o admin e o usuário. Você pode criar um novo usuário ou testar a aplicação usando as seguintes informações de login:
+
+Admin:
+
+- E-mail: admin@email.com
+- Senha: 123456
+
+O admin tem acesso privilegiado e pode gerenciar o cardápio, adicionando, editando e removendo pratos, além de executar outras tarefas administrativas.
+
+Usuário:
+
+- E-mail: user@email.com
+- Senha: 112233
+
+O usuário tem acesso restrito às funcionalidades da aplicação, podendo visualizar o cardápio, filtrar pratos, ver detalhes de pratos específicos, favoritar pratos e adicionar pratos ao carrinho.
+
 
 <h2 id="license">📝 Licença</h2>
 
