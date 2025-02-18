@@ -38,7 +38,7 @@ export function Menu({ isAdmin, isMenuOpen, setIsMenuOpen, setSearch, isDisabled
         ) : null}
 
         <ButtonText onClick={handleFavorites}>
-          Meus favoritos
+          Favoritos
         </ButtonText>
 
         <ButtonText onClick={handleSignOut}>

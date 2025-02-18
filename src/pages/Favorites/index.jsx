@@ -76,7 +76,7 @@ export function Favorites({ isAdmin }) {
                 voltar
               </ButtonText>
 
-              <h1>Meus favoritos</h1>
+              <h1>favoritos</h1>
             </header>
 
             <Content>
