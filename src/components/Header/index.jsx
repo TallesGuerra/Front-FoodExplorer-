@@ -83,7 +83,7 @@ export function Header({
 
           {isDesktop && !isAdmin && (
             <button className="favorites" onClick={handleFavorites}>
-              Meus favoritos
+              Favoritos
             </button>
           )}
 
